@@ -22,10 +22,10 @@ Team members:
 - Returns the files that might contain the answer to the given question, based on their content summary
 - Final Q/A phase
 - The answer dictionary format:
-    `log_file_name.log` : [
-        answer (`string`): actual answer from respective log_file_name.log file,
-        index (`int`): start index of most important entries that were used to form the answer
-        length (`int`): number of entries after starting `index` that were most important
+    `log_file_name.log` : [<br>
+        answer (`string`): actual answer from respective log_file_name.log file,<br>
+        index (`int`): start index of most important entries that were used to form the answer,<br>
+        length (`int`): number of entries after starting `index` that were most important<br>
     ]
 
 ## Code:
