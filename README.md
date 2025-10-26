@@ -31,7 +31,7 @@ Team members:
 ## Code:
 ### Phase 0:
 ```
-FUNCTION record_logs(logs: list of log files) RETURNS dictionary of files and summaries:
+FUNCTION summarize_logs(logs: list of log files) RETURNS dictionary of files and summaries:
     output_dict <-- {}
     FOR EACH log_file in logs:
         output_dict[log_file.name] <-- SUMMARIZE(log_file.name, GET_CONTENT(log_file.name))
