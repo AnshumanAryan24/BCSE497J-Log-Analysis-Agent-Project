@@ -1,2 +1,6 @@
 # Sample log files here for experimentation
 target/
+venv/
+
+# Environment variables
+.env
