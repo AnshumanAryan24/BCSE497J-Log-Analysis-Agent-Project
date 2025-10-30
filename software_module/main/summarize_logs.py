@@ -61,15 +61,15 @@ def create_index(chat_client, root_path:str, recursive) -> dict:
     
     return file_index
 
-def main(chat_client, args):
+def main(args):
+    chat_client = configure_api()
+
     # Create the index (dict) then save as JSON file
     index = create_index(chat_client, args.log_dir, args.recursive)
     with open(args.output, 'w') as file:
         json.dump(index, file)
 
 if __name__ == '__main__':
-    chat_client = configure_api()
-
     # Parse Arguments
     # Add all the required arguments for CLI usage
     # TODO: Add --verbose option
@@ -103,4 +103,4 @@ if __name__ == '__main__':
     )
 
     parsed_args = parser.parse_args()
-    main(chat_client, parsed_args)
+    main(parsed_args)
