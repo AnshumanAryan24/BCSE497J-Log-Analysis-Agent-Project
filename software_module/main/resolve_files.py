@@ -77,11 +77,13 @@ def main(args):
     elif args.question_file:
         with open(args.question_file, 'r') as file:
             questions = file.readlines()
+            questions = [q[:-1] if q[-1]=='\n' else q for q in questions]  # Remove '\n' from each line if present
     
     q_files = resolve_files(questions, file_index, chat_client)
     for q, files in q_files.items():
         print(f'Question: {q}')
         print(f'Files: {files}')
+        print()
 
 if __name__ == '__main__':
     # Parse Arguments
