@@ -58,9 +58,6 @@ def create_index(chat_client, root_path:str, recursive) -> dict:
 
             summary = summarize_log_entries(chat_client, item.name, logs)
             file_index[cleaned_path] = summary
-            
-            # TODO: Remove this break when code runs properly
-            break
     
     return file_index
 
