@@ -49,7 +49,7 @@ FUNCTION resolve_files(question: given question or a transformation, summary_dic
             output_list.append(log_file_name)
         END IF
     END FOR
-    RETURN output_dict
+    RETURN output_list
 ```
 
 ### Phase 2:
