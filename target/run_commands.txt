@@ -1,0 +1,11 @@
+# Activate the venv
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process; venv\Scripts\activate
+
+# Run the log summarizer file with the target logs
+python .\software_module\main\summarize_logs.py -r "target/sample_logs" "target/outputs/output1.json"
+
+# Run the file resolver for a single question
+python .\software_module\main\resolve_files.py -q "Did the Ubuntu System close properly?" "target/outputs/output1.json"
+
+# Run the file resolver for multiple questions
+python .\software_module\main\resolve_files.py -Q "target/questions/question_list1.txt" "target/outputs/output1.json"

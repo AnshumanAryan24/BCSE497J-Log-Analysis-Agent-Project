@@ -1,0 +1,6 @@
+Did the Ubuntu System close properly?
+Is this a non-Ubuntu Linux system?
+What was the first action the Linux system performed after boot?
+What was the first action the system performed after boot?
+How much water should I drink in one day?
+This is not a question.

@@ -1,0 +1,12 @@
+2025-10-26T11:15:01.300Z obj-node-02 storage-gw[2301]: INFO: API: PUT /bucket-alpha/report-q3.pdf User: 'app_user_1' Addr: 10.1.1.50
+2025-10-26T11:15:01.350Z obj-node-02 storage-daemon[2100]: INFO: OSD.7: Replicating object 'report-q3.pdf' (uuid: a1b2c3d4...) to OSD.9, OSD.12
+2025-10-26T11:15:01.550Z obj-node-02 storage-daemon[2100]: INFO: OSD.7: Replication complete for 'report-q3.pdf'.
+2025-10-26T11:15:01.600Z obj-node-02 storage-gw[2301]: INFO: API: PUT /bucket-alpha/report-q3.pdf Status: 200 OK (59.2ms)
+2025-10-26T11:16:05.100Z obj-node-02 storage-gw[2302]: INFO: API: GET /bucket-alpha/logo.png User: 'public_anon' Addr: 198.51.100.10
+2025-10-26T11:16:05.115Z obj-node-02 storage-gw[2302]: INFO: API: GET /bucket-alpha/logo.png Status: 200 OK (12.1ms)
+2025-10-26T11:17:01.000Z obj-node-02 storage-daemon[2100]: INFO: Cluster map updated (epoch 542).
+2025-10-26T11:17:01.005Z obj-node-02 storage-daemon[2100]: INFO: OSD.5 reported down by OSD.1.
+2025-10-26T11:17:01.006Z obj-node-02 storage-daemon[2100]: INFO: Starting rebalance/healing process...
+2025-10-26T11:17:03.210Z obj-node-02 storage-daemon[2100]: INFO: Replicating object 'config-backup.dat' (uuid: e5f6a7b8...) from OSD.7 to OSD.8 to restore redundancy.
+2025-10-26T11:17:03.550Z obj-node-02 storage-daemon[2100]: INFO: Healing complete for object 'config-backup.dat'.
+2025-10-26T11:18:00.120Z obj-node-02 storage-daemon[2100]: INFO: Heartbeat check: OSD.7 is 'up' and 'in'.

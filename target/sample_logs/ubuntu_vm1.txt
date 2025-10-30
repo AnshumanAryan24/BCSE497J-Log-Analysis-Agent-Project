@@ -1,0 +1,54 @@
+Oct 27 11:00:01 vm-ubuntu kernel: [    0.000000] Booting Linux on physical hardware...
+Oct 27 11:00:01 vm-ubuntu kernel: [    0.838453] systemd[1]: System time not set, using hard-coded default.
+Oct 27 11:00:02 vm-ubuntu systemd[1]: Starting Network Configuration...
+Oct 27 11:00:02 vm-ubuntu systemd-networkd[315]: eth0: Link UP
+Oct 27 11:00:03 vm-ubuntu systemd-networkd[315]: eth0: Gained carrier
+Oct 27 11:00:04 vm-ubuntu systemd-networkd[315]: eth0: Gained IPv6LL
+Oct 27 11:00:04 vm-ubuntu systemd[1]: Started Network Configuration.
+Oct 27 11:00:05 vm-ubuntu systemd[1]: Starting OpenSSH server daemon...
+Oct 27 11:00:05 vm-ubuntu sshd[401]: Server listening on 0.0.0.0 port 22.
+Oct 27 11:00:05 vm-ubuntu sshd[401]: Server listening on :: port 22.
+Oct 27 11:00:05 vm-ubuntu systemd[1]: Started OpenSSH server daemon.
+Oct 27 11:00:06 vm-ubuntu systemd[1]: Reached target Network is Online.
+Oct 27 11:00:06 vm-ubuntu systemd[1]: Reached target Host and Network Name Lookups.
+Oct 27 11:00:07 vm-ubuntu systemd-logind[320]: New seat seat0.
+Oct 27 11:00:09 vm-ubuntu systemd[1]: Started User Login Management.
+Oct 27 11:00:10 vm-ubuntu systemd[1]: Reached target Multi-User System.
+Oct 27 11:00:10 vm-ubuntu systemd[1]: Startup finished in 9.876s.
+Oct 27 11:01:15 vm-ubuntu sshd[520]: Invalid user attacker from 10.0.2.2 port 48912
+Oct 27 11:01:15 vm-ubuntu sshd[520]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=10.0.2.2  user=attacker
+Oct 27 11:01:17 vm-ubuntu sshd[520]: Failed password for invalid user attacker from 10.0.2.2 port 48912 ssh2
+Oct 27 11:01:17 vm-ubuntu sshd[520]: Connection closed by authenticating user attacker 10.0.2.2 port 48912 [preauth]
+Oct 27 11:01:30 vm-ubuntu sshd[522]: Accepted publickey for adminuser from 192.168.50.1 port 51234 ssh2: ED25519 SHA256:xyz...
+Oct 27 11:01:30 vm-ubuntu sshd[522]: pam_unix(sshd:session): session opened for user adminuser(uid=1001) by (uid=0)
+Oct 27 11:01:30 vm-ubuntu systemd-logind[320]: New session 2 of user adminuser.
+Oct 27 11:01:30 vm-ubuntu systemd[1]: Started Session 2 of user adminuser.
+Oct 27 11:02:00 vm-ubuntu sudo[545]:  adminuser : TTY=pts/0 ; PWD=/home/adminuser ; USER=root ; COMMAND=/usr/bin/apt install nginx -y
+Oct 27 11:02:00 vm-ubuntu sudo[545]: pam_unix(sudo:session): session opened for user root(uid=0) by adminuser(uid=1001)
+Oct 27 11:02:01 vm-ubuntu apt[546]: Reading package lists... Done
+Oct 27 11:02:02 vm-ubuntu apt[546]: Building dependency tree... Done
+Oct 27 11:02:03 vm-ubuntu apt[546]: Reading state information... Done
+Oct 27 11:02:05 vm-ubuntu apt[546]: The following NEW packages will be installed:
+Oct 27 11:02:05 vm-ubuntu apt[546]:   nginx nginx-common nginx-core
+Oct 27 11:02:07 vm-ubuntu apt[546]: Setting up nginx-common (1.18.0-6ubuntu14.3)...
+Oct 27 11:02:08 vm-ubuntu apt[546]: Setting up nginx-core (1.18.0-6ubuntu14.3)...
+Oct 27 11:02:09 vm-ubuntu apt[546]: Setting up nginx (1.18.0-6ubuntu14.3)...
+Oct 27 11:02:10 vm-ubuntu systemd[1]: Created slice User Slice of UID 0.
+Oct 27 11:02:10 vm-ubuntu systemd[1]: Starting A high performance web server and a reverse proxy server...
+Oct 27 11:02:11 vm-ubuntu systemd[1]: Started A high performance web server and a reverse proxy server.
+Oct 27 11:02:11 vm-ubuntu sudo[545]: pam_unix(sudo:session): session closed for user root
+Oct 27 11:03:00 vm-ubuntu sudo[590]:  adminuser : TTY=pts/0 ; PWD=/home/adminuser ; USER=root ; COMMAND=/usr/bin/systemctl restart sshd
+Oct 27 11:03:00 vm-ubuntu sudo[590]: pam_unix(sudo:session): session opened for user root(uid=0) by adminuser(uid=1001)
+Services.
+Oct 27 11:03:01 vm-ubuntu systemd[1]: Stopping OpenSSH server daemon...
+Oct 27 11:03:01 vm-ubuntu systemd[1]: sshd.service: Succeeded.
+Oct 27 11:03:01 vm-ubuntu systemd[1]: Stopped OpenSSH server daemon.
+Oct 27 11:03:01 vm-ubuntu systemd[1]: Starting OpenSSH server daemon...
+Oct 27 11:03:01 vm-ubuntu sshd[610]: Server listening on 0.0.0.0 port 22.
+Oct 27 11:03:01 vm-ubuntu sshd[610]: Server listening on :: port 22.
+Request.
+Oct 27 11:03:01 vm-ubuntu systemd[1]: Started OpenSSH server daemon.
+Oct 27 11:03:01 vm-ubuntu sudo[590]: pam_unix(sudo:session): session closed for user root
+Oct 27 11:05:01 vm-ubuntu CRON[701]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 27 11:05:01 vm-ubuntu CRON[702]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Oct 27 11:05:01 vm-ubuntu CRON[701]: pam_unix(cron:session): session closed for user root

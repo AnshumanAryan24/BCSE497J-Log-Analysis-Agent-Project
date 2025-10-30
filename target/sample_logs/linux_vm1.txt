@@ -1,0 +1,17 @@
+Oct 26 10:30:01 linux-vm systemd[1]: Starting System Logging Service...
+Oct 26 10:30:01 linux-vm systemd[1]: Started System Logging Service.
+Oct 26 10:30:02 linux-vm kernel: [    0.000000] Linux version 5.15.0-76-generic (buildd@linux)
+Oct 26 10:30:02 linux-vm kernel: [    0.543210] pci 0000:00:03.0: 8086:100e (rev 02)
+Oct 26 10:30:03 linux-vm systemd-networkd[452]: eth0: Link UP
+Oct 26 10:30:03 linux-vm systemd-networkd[452]: eth0: Gained carrier
+Oct 26 10:30:04 linux-vm systemd-networkd[452]: eth0: Gained IPv6LL
+Oct 26 10:30:05 linux-vm systemd[1]: Started OpenSSH server daemon.
+Oct 26 10:30:05 linux-vm sshd[512]: Server listening on 0.0.0.0 port 22.
+Oct 26 10:30:05 linux-vm sshd[512]: Server listening on :: port 22.
+Oct 26 10:30:10 linux-vm systemd-logind[455]: New session 1 of user ubuntu.
+Oct 26 10:30:10 linux-vm systemd[1]: Started Session 1 of user ubuntu.
+Oct 26 10:30:10 linux-vm sshd[530]: Accepted publickey for ubuntu from 192.168.1.100 port 54321 ssh2: RSA SHA256:abc...
+Oct 26 10:30:10 linux-vm sshd[530]: pam_unix(sshd:session): session opened for user ubuntu(uid=1000) by (uid=0)
+Oct 26 10:31:01 linux-vm CRON[601]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 26 10:31:01 linux-vm CRON[602]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)
+Oct 26 10:31:01 linux-vm CRON[601]: pam_unix(cron:session): session closed for user root

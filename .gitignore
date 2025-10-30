@@ -1,5 +1,7 @@
 # Sample log files here for experimentation
-target/
+# target/
+
+# Python virtual environment
 venv/
 
 # Environment variables
