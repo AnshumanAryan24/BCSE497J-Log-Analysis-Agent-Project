@@ -38,8 +38,9 @@ def compare(summary:str, question:str, chat_client) -> bool:
     response = None
     if API=='gemini':
         response = chat_client.generate_content(complete_prompt)
+        response = response.text
     
-    res = response.text.lower()
+    res = response.lower()
     if 'yes' in res:
         return True
     elif 'no' in res:
