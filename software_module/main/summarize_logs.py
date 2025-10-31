@@ -44,8 +44,9 @@ def summarize_log_entries(chat_client, filename:str, entries:tuple) -> str:
     response = None
     if API=='gemini':
         response = chat_client.generate_content(complete_prompt)
+        response = response.text
     
-    return response.text
+    return response
 
 def create_index(chat_client, root_path:str, recursive) -> dict:
     file_index = {}
