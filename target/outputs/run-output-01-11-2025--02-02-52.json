@@ -1,0 +1,88 @@
+{
+    "Did the Ubuntu System close properly?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "1",
+            "start_index": "1",
+            "length": "8"
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "10:30:05",
+            "start_index": "10:30:05",
+            "length": "8"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "0",
+            "start_index": "0",
+            "length": "8"
+        }
+    },
+    "Is this a non-Ubuntu Linux system?": {
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "obj-node-02",
+            "start_index": "2",
+            "length": "12"
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "10:30:05",
+            "start_index": "10",
+            "length": "12"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "0",
+            "start_index": "0",
+            "length": "8"
+        }
+    },
+    "What was the first action the Linux system performed after boot?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "The first action the Linux system performed after boot was the start of the systemd process.",
+            "start_index": "1",
+            "length": "82"
+        },
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "2025-10-26T11:15:01",
+            "start_index": "2025-10-26T11:15:01",
+            "length": "12"
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "2",
+            "start_index": "2",
+            "length": "12"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "0",
+            "start_index": "0",
+            "length": "8"
+        }
+    },
+    "What was the first action the system performed after boot?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "The system started OpenSSH server daemon.",
+            "start_index": "10",
+            "length": "8"
+        },
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "API",
+            "start_index": "2",
+            "length": "12"
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "2025-10-26T10:30:02",
+            "start_index": "2",
+            "length": "7"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "0",
+            "start_index": "0",
+            "length": "8"
+        }
+    },
+    "How much water should I drink in one day?": {},
+    "This is not a question.": {},
+    "file_index": {
+        "target\\sample_logs\\linux_vm1.txt": "The system started, then logged in as user ubuntu, accepted SSH keys, and then the system was closed.",
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": "The system state transitioned from \u2018up\u2019 to \u2018down\u2019 for OSD.7, then \u2018up\u2019 again, and finally \u2018healing\u2019 for \u2018config-backup.dat\u2019.",
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": "The system started with object storage daemons, then mounted OSDs, joined the cluster, and finally, an OSD failed to mount, triggering a warning.",
+        "target\\sample_logs\\ubuntu_vm1.txt": "The system experienced a successful boot and network configuration, followed by the start of the OpenSSH server and user login management. Subsequently, the system was restarted, and the system and network names were updated. Finally, the system was shut down and the OpenSSH server daemon was stopped."
+    }
+}

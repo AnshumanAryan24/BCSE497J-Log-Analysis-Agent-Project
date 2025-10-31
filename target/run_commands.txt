@@ -1,3 +1,5 @@
+# Note: Run all commands from root folder of project
+
 # Activate the venv
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process; venv\Scripts\activate
 
@@ -8,3 +10,6 @@ python .\software_module\main\summarize_logs.py -r "target/sample_logs" "target/
 python .\software_module\main\resolve_files.py -q "Did the Ubuntu System close properly?" "target/outputs/output1.json"
 # Run the file resolver for multiple questions
 python .\software_module\main\resolve_files.py -Q "target/questions/question_list1.txt" "target/outputs/output1.json"
+
+# Run the Python demo of the project
+python .\software_module\main\run.py

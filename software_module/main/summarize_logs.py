@@ -30,7 +30,7 @@ def summarize_log_entries(chat_client, filename:str, entries:tuple) -> str:
     
     return response
 
-def create_index(chat_client, root_path:str, recursive) -> dict:
+def create_index(chat_client, root_path:str, recursive:bool) -> dict:
     file_index = {}
     for item in os.scandir(root_path):
         if item.is_dir() and recursive:
