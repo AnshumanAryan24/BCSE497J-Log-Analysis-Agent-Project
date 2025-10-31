@@ -1,0 +1,12 @@
+2025-10-26T10:30:01.123+0000 obj-node-01 storage-daemon[1101]: INFO: Starting object storage daemon...
+2025-10-26T10:30:01.456+0000 obj-node-01 storage-daemon[1101]: INFO: Mounting OSD.3 on /dev/sdb1...
+2025-10-26T10:30:01.789+0000 obj-node-01 storage-daemon[1101]: INFO: OSD.3 mounted successfully.
+2025-10-26T10:30:02.112+0000 obj-node-01 storage-daemon[1102]: INFO: Mounting OSD.4 on /dev/sdc1...
+2025-10-26T10:30:02.435+0000 obj-node-01 storage-daemon[1102]: INFO: OSD.4 mounted successfully.
+2025-10-26T10:30:03.001+0000 obj-node-01 storage-daemon[1101]: INFO: OSD.3 joined cluster.
+2025-10-26T10:30:03.201+0000 obj-node-01 storage-daemon[1102]: INFO: OSD.4 joined cluster.
+2025-10-26T10:30:05.604+0000 obj-node-01 kernel: [15.450] smartd[980]: Device: /dev/sdd, 1 Currently unreadable (pending) sectors
+2025-10-26T10:30:05.605+0000 obj-node-01 kernel: [15.451] smartd[980]: Device: /dev/sdd, 1 Offline uncorrectable sectors
+2025-10-26T10:30:05.800+0000 obj-node-01 storage-daemon[1103]: ERROR: Failed to mount OSD.5 on /dev/sdd1: device health check failed.
+2025-10-26T10:30:05.801+0000 obj-node-01 storage-daemon[1103]: WARNING: OSD.5 marked 'down'.
+2025-10-26T10:30:07.123+0000 obj-node-01 storage-monitor[1099]: INFO: Cluster health changed from HEALTH_OK to HEALTH_WARN (1 osd down).
