@@ -1,8 +1,8 @@
 from argparse import ArgumentParser  # For CLI usage
 import os  # For handling log files and paths
 import json  # For saving resulting index as JSON file
-import google.generativeai as genai  # For summarizing log content
-from dotenv import load_dotenv  # For loading environment variables
+
+from api_config import configure_api, API  # For Chat API configuration
 
 # Prompt Engg. constants
 SUMMARY_WORD_LIMIT = 40
@@ -10,25 +10,7 @@ SUMMARIZE_PROMPT = f'''You are supposed to read the given log file entries for t
 NOTE: Your response must contain only the intended summary, no other surrounding salutation.
 '''
 
-# Chat API constants
-API = 'gemini'
-GEMINI_MODEL = 'gemma-3-1b-it'  # gemma-3n-e2b-it, gemini-2.5-flash-lite, gemini-2.5-flash
-
 # Functions
-def configure_api():
-    # Based on chosen API Vendor, return chat client object
-    client = None
-    if API=='gemini':
-        load_dotenv(dotenv_path='.env', override=True)  # Using relative path from root of project
-        api_key = os.environ.get('GOOGLE_API_KEY')
-        if not api_key:
-            raise ValueError('GOOGLE_API_KEY not found. Make sure you have a .env file.')
-        
-        genai.configure(api_key=api_key)
-        
-        model = genai.GenerativeModel(GEMINI_MODEL)
-    return model
-
 def read_log_file(file_path:str) -> tuple:  # For now, returns tuple of lines
     lines = ()
     with open(file_path, 'r') as file:
