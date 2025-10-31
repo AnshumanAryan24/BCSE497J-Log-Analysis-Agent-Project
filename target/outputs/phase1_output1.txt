@@ -1,5 +1,5 @@
 Question: Did the Ubuntu System close properly?
-Files: ['target\\sample_logs\\linux_vm1.txt']
+Files: ['target\\sample_logs\\linux_vm1.txt', 'target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt']
 
 Question: Is this a non-Ubuntu Linux system?
 Files: ['target\\sample_logs\\object_storage_cluster\\gateway.txt', 'target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt', 'target\\sample_logs\\ubuntu_vm1.txt']
