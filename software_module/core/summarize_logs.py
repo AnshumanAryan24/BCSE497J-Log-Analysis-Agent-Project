@@ -50,7 +50,7 @@ def main(args):
     # Create the index (dict) then save as JSON file
     index = create_index(chat_client, args.log_dir, args.recursive)
     with open(args.output, 'w') as file:
-        json.dump(index, file)
+        json.dump(index, file, indent=4)
 
 if __name__ == '__main__':
     # Parse Arguments
