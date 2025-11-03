@@ -1,0 +1,90 @@
+{
+    "What was the first action the system performed after boot and the systemd daemon?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "Starting System Logging Service",
+            "log": "Oct 26 10:30:01 linux-vm systemd[1]: Starting System Logging Service..."
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "Starting Network Configuration.",
+            "log": "Oct 27 11:00:02 vm-ubuntu systemd[1]: Starting Network Configuration..."
+        }
+    },
+    "In what epoch was the cluster map updated?": {
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "542",
+            "log": "2025-10-26T11:17:01.000Z obj-node-02 storage-daemon[2100]: INFO: Cluster map updated (epoch 542)."
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        }
+    },
+    "Are all OSD's properly mounted?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "No",
+            "log": "2025-10-26T11:17:01.005Z obj-node-02 storage-daemon[2100]: INFO: OSD.5 reported down by OSD.1."
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "No",
+            "log": "2025-10-26T10:30:05.800+0000 obj-node-01 storage-daemon[1103]: ERROR: Failed to mount OSD.5 on /dev/sdd1: device health check failed."
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        }
+    },
+    "Did the gateway handle any PUT requests?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "Yes",
+            "log": "2025-10-26T11:15:01.300Z obj-node-02 storage-gw[2301]: INFO: API: PUT /bucket-alpha/report-q3.pdf User: 'app_user_1' Addr: 10.1.1.50"
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        }
+    },
+    "What was the return status of GET request for resource \"/bucket-alpha/logo.png\"?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "200 OK",
+            "log": "2025-10-26T11:16:05.115Z obj-node-02 storage-gw[2302]: INFO: API: GET /bucket-alpha/logo.png Status: 200 OK (12.1ms)"
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        }
+    },
+    "file_index": {
+        "target\\sample_logs\\linux_vm1.txt": "The Linux VM initiated boot, bringing up logging, networking, and an SSH server. User 'ubuntu' logged in via SSH. A root cron job then opened and closed a session, concluding the logs.",
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": "Storage system handled object requests. OSD.5 was reported down, prompting a rebalance/healing process for 'config-backup.dat' to restore redundancy. The system remained operational with OSD.7 active.",
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": "Object storage daemon started, mounting OSD.3 and OSD.4. OSD.5 failed to mount due to a device health check failure and was marked down, changing cluster health from HEALTH_OK to HEALTH_WARN (1 osd down).",
+        "target\\sample_logs\\ubuntu_vm1.txt": "The system booted, with network and SSH services started. Following a failed login attempt, 'adminuser' installed and started Nginx, then restarted SSH. A root cron job successfully executed."
+    }
+}

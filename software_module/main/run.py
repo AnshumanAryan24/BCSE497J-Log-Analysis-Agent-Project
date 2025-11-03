@@ -21,7 +21,6 @@ def main():
     questions = None
     with open(STORAGE_CLUSTER_SPECIFIC_QUESTIONS_FILE, 'r') as file: 
         questions = file.read().split('\n')
-    questions = questions[3:4]
 
     # Phase 0: Get the mapping log_file : file_summary
     file_index = create_index(chat_client, SAMPLE_LOGS_ROOT_PATH, True)

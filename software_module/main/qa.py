@@ -11,20 +11,15 @@ ANSWER_PROMPT = '''You will be given the full log entries of a file and a questi
 Your task is to decide whether the log entries contain enough information to answer the question exactly.
 
 Rules:
-
-Use only the given logs. Do not infer or imagine missing details.
-
-You must return exactly one answer. If multiple entries look relevant, choose the single most directly informative one.
-
-The LOG field must contain the exact log entry text you used, without modification or summarization.
-
-If the logs do not contain a complete answer, return "nil" for both fields. Partial or guessed answers are not allowed.
+1. Use only the given logs. Do not infer or imagine missing details.
+2. You must return exactly one answer. If multiple entries look relevant, choose the single most directly informative one.
+3. The LOG field must contain the exact log entry text you used, without modification or summarization.
+4. If the logs do not contain a complete answer, return "nil" for both fields. Partial or guessed answers are not allowed.
 
 Output must strictly follow this format:
 
 ANSWER: <your answer in plain English, no explanation>
 LOG: <exact log line used, or "nil">
-
 
 No extra text. No reasoning.
 '''
