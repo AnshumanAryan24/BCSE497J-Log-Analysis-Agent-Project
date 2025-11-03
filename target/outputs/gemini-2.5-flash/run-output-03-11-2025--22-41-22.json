@@ -1,0 +1,14 @@
+{
+    "Did the gateway handle any PUT requests?": {
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "Yes",
+            "log": "2025-10-26T11:15:01.300Z obj-node-02 storage-gw[2301]: INFO: API: PUT /bucket-alpha/report-q3.pdf User: 'app_user_1' Addr: 10.1.1.50"
+        }
+    },
+    "file_index": {
+        "target\\sample_logs\\linux_vm1.txt": "A Linux VM booted, initializing system logging and network (eth0 UP). The OpenSSH server started, followed by user 'ubuntu' logging in via SSH. Finally, a root cron job completed.",
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": "Initially, PUT/GET operations were successful. Following OSD.5 reporting down, a rebalance/healing process restored redundancy for 'config-backup.dat'. The system ended with OSD.7 confirmed 'up' and 'in'.",
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": "Object storage daemon started. OSD.3 and OSD.4 mounted and joined the cluster successfully. However, OSD.5 failed to mount on /dev/sdd1 due to device health issues and was marked down, resulting in a HEALTH_WARN cluster state.",
+        "target\\sample_logs\\ubuntu_vm1.txt": "The system booted, initialized network and SSH services. An attacker failed SSH login. An adminuser then installed Nginx, started it, and restarted SSH. The system concluded with Nginx and SSH running, and a cron job executed."
+    }
+}

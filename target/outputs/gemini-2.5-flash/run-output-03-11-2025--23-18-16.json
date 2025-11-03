@@ -1,0 +1,26 @@
+{
+    "Did the gateway handle any PUT requests?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "Yes, the gateway handled PUT requests.",
+            "log": "2025-10-26T11:15:01.300Z obj-node-02 storage-gw[2301]: INFO: API: PUT /bucket-alpha/report-q3.pdf User: 'app_user_1' Addr: 10.1.1.50"
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        }
+    },
+    "file_index": {
+        "target\\sample_logs\\linux_vm1.txt": "The system booted, starting core services and bringing the network online. An 'ubuntu' user logged in successfully via SSH from 192.168.1.100. Subsequently, a root cron job executed and completed.",
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": "The system initially processed successful object PUT/GET requests. Subsequently, an OSD node was reported down, prompting a cluster rebalance and data healing. Healing completed for `config-backup.dat`, and OSD.7 remained operational.",
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": "Object storage daemon started, mounting OSD.3 and OSD.4 successfully. However, OSD.5 failed to mount due to device errors, causing it to be marked down and the cluster health to change to HEALTH_WARN.",
+        "target\\sample_logs\\ubuntu_vm1.txt": "System booted, network and SSH services active. It ended with Nginx installed and running, the SSH daemon restarted, after an admin user logged in, and a cron job completed."
+    }
+}
