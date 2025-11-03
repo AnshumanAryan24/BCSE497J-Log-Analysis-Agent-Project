@@ -4,10 +4,14 @@ import json  # For saving resulting index as JSON file
 from api_config import configure_api, API  # For Chat API configuration
 
 # Prompt Engg. constants
-COMPARE_PROMPT = '''You will be given the summary of a recorded log file and a question. Your task is to determine whether the log file, if read completely, could potentially contain the answer to the question given, based on the given summary.
-You must assume only the given summary as true and not add new information to it.
-If the log file fits to be a candidate for finding the answer to the given question, report "YES", else report "NO".
-Note that your response must contain only "YES" or "NO", and no other surrounding salutation.
+COMPARE_PROMPT = '''You are given a summary of a log file and a question. Decide whether this log file might contain information relevant to answering the question.
+Use only the summary. Do not assume any information that is not explicitly stated.
+
+Your goal is to avoid rejecting potentially useful files.
+If there is any reasonable possibility that the answer could be inside the file, respond "YES".
+Respond "NO" only if the summary clearly shows the file is irrelevant.
+
+Output must be exactly one word: YES or NO.
 '''
 
 # Functions

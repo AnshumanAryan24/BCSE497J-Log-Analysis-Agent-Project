@@ -1,16 +1,17 @@
 from resolve_files import resolve_files  # Phase 0
 from summarize_logs import create_index  # Phase 1
 from qa import get_answer  # Phase 2
-from api_config import configure_api  # For Chat API configuration
+from api_config import configure_api, GEMINI_MODEL as MODEL  # For Chat API configuration
 
+import os  # For file paths
 from datetime import datetime  # For saving results with timestamp
 import json  # For saving resulting index as JSON file
-from time import sleep
 
 # Constants
 QUESTIONS_FILE = 'target/questions/question_list1.txt'
 STORAGE_CLUSTER_SPECIFIC_QUESTIONS_FILE = 'target/questions/question_list_specific.txt'
 SAMPLE_LOGS_ROOT_PATH = 'target/sample_logs'
+OUTPUT_ROOT_PATH = 'target/outputs'
 
 def main():
     # Configure the Chat API
@@ -48,7 +49,12 @@ def main():
         print('----------------')
     
     results_index['file_index'] = file_index
-    result_file = 'target/outputs/run-output-' + datetime.now().strftime('%d-%m-%Y--%H-%M-%S') + '.json'
+    result_file = os.path.normpath(
+        os.path.join(
+            os.path.join(OUTPUT_ROOT_PATH, MODEL),
+            'run-output-' + datetime.now().strftime('%d-%m-%Y--%H-%M-%S') + '.json'
+        )
+    )
     with open(result_file, 'w') as file:
         json.dump(results_index, file, indent=4)
     print()

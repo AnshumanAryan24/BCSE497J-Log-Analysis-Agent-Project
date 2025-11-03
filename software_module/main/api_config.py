@@ -4,7 +4,7 @@ from dotenv import load_dotenv  # For loading environment variables
 
 # Chat API constants
 API = 'gemini'
-GEMINI_MODEL = 'gemma-3-1b-it'  # gemma-3n-e2b-it, gemini-2.5-flash-lite, gemini-2.5-flash
+GEMINI_MODEL = 'gemini-2.5-flash'  # gemma-3-1b-it, gemma-3n-e2b-it, gemini-2.5-flash-lite, gemini-2.5-flash
 
 # Functions
 def configure_api():

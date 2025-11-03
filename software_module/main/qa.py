@@ -7,15 +7,26 @@ MAX_WAIT_TIME = 60  # seconds
 MAX_ATTEMPTS = 20
 
 # Prompt Engg. constants
-ANSWER_PROMPT = '''You will be given the log file entries of a system and an associated question. Analyse the logs and answer the question.
-You must assume only the given logs to be true, do not add new information to it. You must report two items in your response - the answer and content of the relevant log entry.
-Report only one answer, and its respective start index and length.
+ANSWER_PROMPT = '''You will be given the full log entries of a file and a question.
+Your task is to decide whether the log entries contain enough information to answer the question exactly.
 
-Stick strictly to the following answer format:
-ANSWER: <your answer in english words, no explaination>
-LOG: <the log entry that was used to answer the question>
+Rules:
 
-You must answer exactly in the above provided format.
+Use only the given logs. Do not infer or imagine missing details.
+
+You must return exactly one answer. If multiple entries look relevant, choose the single most directly informative one.
+
+The LOG field must contain the exact log entry text you used, without modification or summarization.
+
+If the logs do not contain a complete answer, return "nil" for both fields. Partial or guessed answers are not allowed.
+
+Output must strictly follow this format:
+
+ANSWER: <your answer in plain English, no explanation>
+LOG: <exact log line used, or "nil">
+
+
+No extra text. No reasoning.
 '''
 
 # Chat API constants
