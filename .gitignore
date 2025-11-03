@@ -8,4 +8,4 @@ venv/
 .env
 
 # Pycache for main/ folder
-software_module/main/__pycache__
+software_module/core/__pycache__
