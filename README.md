@@ -23,9 +23,8 @@ Team members:
 - Final Q/A phase
 - The answer dictionary format:
     `log_file_name.log` : [<br>
-        answer (`string`): actual answer from respective log_file_name.log file,<br>
-        index (`int`): start index of most important entries that were used to form the answer,<br>
-        length (`int`): number of entries after starting `index` that were most important<br>
+        answer (`string`): actual answer from respective log_file_name.log file (else "nil"),<br>
+        log (`string`): most relevant log entry used for answering question (else "nil")<br>
     ]
 
 ## Code:
@@ -58,9 +57,9 @@ FUNCTION get_answer(question: given question or a transformation, candidates: li
     answers <-- {}
     FOR EACH candidate in candidates:
         log_content <-- GET_CONTENT(candidate)
-        [valid:boolean, answer:string, index:int, length:int] <-- ANSWER(candidate, log_content, question)
+        [valid:boolean, answer:string, log:string] <-- ANSWER(candidate, log_content, question)
         IF (valid):
-            answers[candidate] <-- [answer, index, length]
+            answers[candidate] <-- [answer, string]
         END IF
     END FOR
     RETURN answers
@@ -79,6 +78,6 @@ FUNCTION get_answer(question: given question or a transformation, candidates: li
     
     Use LLM to conclude whether the given question can be answered using the file with the given summary
 
-- `ANSWER(candidate:string, log_content:list[line], question:string) RETURNS list[boolean, string, int, int]`:
+- `ANSWER(candidate:string, log_content:list[line], question:string) RETURNS list[boolean, string, string]`:
     
     Use LLM and some formatting to answer the given question using the given context of file name (`candidate`) and the file's content (`log_content`), along with a `boolean` variable indicating whether the model was able to answer the question
