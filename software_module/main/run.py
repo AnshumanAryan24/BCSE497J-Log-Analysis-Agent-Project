@@ -9,6 +9,7 @@ from time import sleep
 
 # Constants
 QUESTIONS_FILE = 'target/questions/question_list1.txt'
+STORAGE_CLUSTER_SPECIFIC_QUESTIONS_FILE = 'target/questions/question_list_specific.txt'
 SAMPLE_LOGS_ROOT_PATH = 'target/sample_logs'
 
 def main():
@@ -17,8 +18,9 @@ def main():
 
     # Get saved questions
     questions = None
-    with open(QUESTIONS_FILE, 'r') as file: 
+    with open(STORAGE_CLUSTER_SPECIFIC_QUESTIONS_FILE, 'r') as file: 
         questions = file.read().split('\n')
+    questions = questions[3:4]
 
     # Phase 0: Get the mapping log_file : file_summary
     file_index = create_index(chat_client, SAMPLE_LOGS_ROOT_PATH, True)
@@ -41,8 +43,7 @@ def main():
         for log_file, result in answers.items():
             print(f'Log File Used: {log_file}')
             print(f'Answer Received: {result["answer"]}')
-            if (str(result['start_index']).isdigit()):
-                print(f'At index {result["start_index"]}, span {result["length"]} logs')
+            print(f'Relevant log entry: {result["log"]}')
             print()
         print('----------------')
     

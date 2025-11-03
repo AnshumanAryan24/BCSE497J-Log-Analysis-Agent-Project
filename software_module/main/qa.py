@@ -8,13 +8,12 @@ MAX_ATTEMPTS = 20
 
 # Prompt Engg. constants
 ANSWER_PROMPT = '''You will be given the log file entries of a system and an associated question. Analyse the logs and answer the question.
-You must assume only the given logs to be true, do not add new information to it. You must report three items in your response - the answer, the start index of the most relevant log entry that answered the question, the number of relevant logs after the starting index.
+You must assume only the given logs to be true, do not add new information to it. You must report two items in your response - the answer and content of the relevant log entry.
 Report only one answer, and its respective start index and length.
 
 Stick strictly to the following answer format:
 ANSWER: <your answer in english words, no explaination>
-START INDEX: <starting log entry index>
-LENGTH: <length of log entries spanned>
+LOG: <the log entry that was used to answer the question>
 
 You must answer exactly in the above provided format.
 '''
@@ -42,16 +41,11 @@ def answer_with_client(log_content:str, question:str, chat_client) -> dict:
     res = response.split('\n')
     
     answer = res[0].split('ANSWER: ')[1]
-    
-    # Not converting values to int here for now to avoid formatting issues
-    # in case of no answer found, as response is unreliable in this case.
-    start_index = res[1].split('START INDEX: ')[1]
-    length = res[2].split('LENGTH: ')[1]
+    log_entry = res[1].split('LOG: ')[1]
 
     return {
         'answer': answer,
-        'start_index': start_index,
-        'length': length
+        'log': log_entry
     }
 
 def get_answer(question:str, candidates:list, chat_client) -> dict:

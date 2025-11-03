@@ -1,0 +1,14 @@
+{
+    "Did the gateway handle any PUT requests?": {
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "Did",
+            "log": "2025-10-26T11:15:01.300Z obj-node-02 storage-gw[2301]: INFO: API: PUT /bucket-alpha/report-q3.pdf User: 'app_user_1' Addr: 10.1.1.50"
+        }
+    },
+    "file_index": {
+        "target\\sample_logs\\linux_vm1.txt": "The system started, then logged in as ubuntu, accepted SSH keys, and then the system was closed.",
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": "The system state transitioned from \u2018up\u2019 to \u2018down\u2019 for OSD.7, then \u2018up\u2019 again, followed by a heartbeat check for OSD.7.",
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": "The system started with object storage daemons, then mounted OSDs, joined the cluster, and finally, an OSD failed to mount, triggering a warning.",
+        "target\\sample_logs\\ubuntu_vm1.txt": "The system experienced a successful boot and network configuration, followed by the start of the OpenSSH server and user login management. Subsequently, the system was restarted, and the system and network names were updated. Finally, the system was shut down and the OpenSSH server daemon was stopped."
+    }
+}

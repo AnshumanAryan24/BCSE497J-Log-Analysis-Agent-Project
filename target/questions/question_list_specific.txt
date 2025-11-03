@@ -1,0 +1,5 @@
+What was the first action the system performed after boot and the systemd daemon?
+In what epoch was the cluster map updated?
+Are all OSD's properly mounted?
+Did the gateway handle any PUT requests?
+What was the return status of GET request for resource "/bucket-alpha/logo.png"?

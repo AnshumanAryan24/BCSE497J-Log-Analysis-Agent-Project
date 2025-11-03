@@ -1,0 +1,26 @@
+{
+    "What was the first action the system performed after boot?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "The system started OpenSSH server daemon.",
+            "log": "`Oct 26 10:30:05 linux-vm systemd-logind[455]: New session 1 of user ubuntu.`"
+        },
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "API",
+            "log": "2025-10-26T11:15:01.300Z obj-node-02 storage-gw[2301]: INFO: API: PUT /bucket-alpha/report-q3.pdf User: 'app_user_1' Addr: 10.1.1.50"
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "Starting",
+            "log": "2025-10-26T10:30:01.123+0000 obj-node-01 storage-daemon[1101]: INFO: Starting object storage daemon..."
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "The system started the OpenSSH server daemon at 11:00:05.",
+            "log": "Oct 27 11:00:05 vm-ubuntu systemd[1]: Started OpenSSH server daemon."
+        }
+    },
+    "file_index": {
+        "target\\sample_logs\\linux_vm1.txt": "The system started, then logged in as ubuntu, accepted SSH keys, and then the system was closed.",
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": "The system state transitioned from \u2018up\u2019 to \u2018down\u2019 for OSD.7, then \u2018up\u2019 again, and finally \u2018healing\u2019 for \u2018config-backup.dat\u2019.",
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": "The system started with object storage daemons, then mounted OSDs, joined the cluster, and finally, an OSD failed to mount, triggering a warning.",
+        "target\\sample_logs\\ubuntu_vm1.txt": "The system experienced a successful boot and network configuration, followed by the start of the OpenSSH server and user login management. Subsequently, the system was restarted, and the system and network names were updated. The system then started a cron job that executed a command to check for the presence of the Debian SA1 package."
+    }
+}

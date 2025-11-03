@@ -1,0 +1,9 @@
+{
+    "Did the API gateway handle any PUT requests?": {},
+    "file_index": {
+        "target\\sample_logs\\linux_vm1.txt": "The system started, then logged in as ubuntu, accepted SSH keys, and then the system was closed.",
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": "The system state transitioned from \u2018up\u2019 to \u2018down\u2019 for OSD.7, then \u2018up\u2019 again, and finally \u2018healing\u2019 for \u2018config-backup.dat\u2019.",
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": "The system started with object storage daemons, then mounted OSDs, joined the cluster, and finally, an OSD failed to mount, triggering a warning.",
+        "target\\sample_logs\\ubuntu_vm1.txt": "The system experienced a successful boot and network configuration, followed by the start of the OpenSSH server and user login management. Subsequently, the system was restarted, and the system and network names were updated. The system then initiated a `systemd` session, and the `sudo` command was executed, restarting the SSH daemon."
+    }
+}
