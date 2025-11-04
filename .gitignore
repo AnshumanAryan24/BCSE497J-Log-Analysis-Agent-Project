@@ -11,3 +11,4 @@ venv/
 software_module/core/__pycache__
 software_module/__pycache__
 project_demo/__pycache__
+benchmarking/datasets/LogQA/__pycache__

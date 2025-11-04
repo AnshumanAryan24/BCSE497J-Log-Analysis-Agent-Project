@@ -1,0 +1,7 @@
+# Note: Run all commands from root folder of project
+
+# Activate the venv
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process; venv\Scripts\activate
+
+# Create the index file (once) for LogQA dataset
+python -m benchmarking.datasets.LogQA.create_logqa_index
