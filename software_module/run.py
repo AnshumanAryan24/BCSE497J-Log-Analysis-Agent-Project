@@ -1,7 +1,7 @@
-from resolve_files import resolve_files  # Phase 0
-from summarize_logs import create_index  # Phase 1
-from qa import get_answer  # Phase 2
-from api_config import configure_api, GEMINI_MODEL as MODEL  # For Chat API configuration
+from core.resolve_files import resolve_files  # Phase 0
+from core.summarize_logs import create_index  # Phase 1
+from core.qa import get_answer  # Phase 2
+from core.api_config import configure_api, GEMINI_MODEL as MODEL  # For Chat API configuration
 
 import os  # For file paths
 from datetime import datetime  # For saving results with timestamp
@@ -13,20 +13,16 @@ STORAGE_CLUSTER_SPECIFIC_QUESTIONS_FILE = 'target/questions/question_list_specif
 SAMPLE_LOGS_ROOT_PATH = 'target/sample_logs'
 OUTPUT_ROOT_PATH = 'target/outputs'
 
-def main():
-    # Configure the Chat API
+def record_answers(questions:list[str], logs_root:str=SAMPLE_LOGS_ROOT_PATH, output_root_folder:str=OUTPUT_ROOT_PATH):
     chat_client = configure_api()
 
-    # Get saved questions
-    questions = None
-    with open(STORAGE_CLUSTER_SPECIFIC_QUESTIONS_FILE, 'r') as file: 
-        questions = file.read().split('\n')
-
     # Phase 0: Get the mapping log_file : file_summary
-    file_index = create_index(chat_client, SAMPLE_LOGS_ROOT_PATH, True)
+    print('Creating index...')
+    file_index = create_index(chat_client, logs_root, True)
     print(f'Phase 0 complete, created file index for {len(file_index.keys())} log files')
 
     # Phase 1: Resolve which files potentially contain answers to which questions    
+    print('Resolving files...')
     q_files = resolve_files(questions, file_index, chat_client)
     print(f'Phase 1 complete, resolved candidate log files for {len(questions)} questions')
 
@@ -50,7 +46,7 @@ def main():
     results_index['file_index'] = file_index
     result_file = os.path.normpath(
         os.path.join(
-            os.path.join(OUTPUT_ROOT_PATH, MODEL),
+            os.path.join(output_root_folder, MODEL),
             'run-output-' + datetime.now().strftime('%d-%m-%Y--%H-%M-%S') + '.json'
         )
     )
@@ -58,6 +54,20 @@ def main():
         json.dump(results_index, file, indent=4)
     print()
     print(f'Saved results at {result_file}')
+
+    return results_index
+
+def main():
+    # Configure the Chat API
+    chat_client = configure_api()
+
+    # Get saved questions
+    questions = None
+    with open(STORAGE_CLUSTER_SPECIFIC_QUESTIONS_FILE, 'r') as file: 
+        questions = file.read().split('\n')
+    
+    # Ignoring return answers here for this demo
+    record_answers(questions)
 
 if __name__=='__main__':
     main()

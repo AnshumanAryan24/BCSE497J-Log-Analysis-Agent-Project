@@ -2,7 +2,7 @@ from argparse import ArgumentParser  # For CLI usage
 import os  # For handling log files and paths
 import json  # For saving resulting index as JSON file
 
-from api_config import configure_api, API  # For Chat API configuration
+from core.api_config import configure_api, API  # For Chat API configuration
 
 # Prompt Engg. constants
 SUMMARY_WORD_LIMIT = 40

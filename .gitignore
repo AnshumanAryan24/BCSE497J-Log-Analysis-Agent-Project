@@ -7,5 +7,6 @@ venv/
 # Environment variables
 .env
 
-# Pycache for main/ folder
+# Pycache folders
 software_module/core/__pycache__
+software_module/__pycache__

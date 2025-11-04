@@ -1,7 +1,7 @@
 from argparse import ArgumentParser  # For CLI usage
 import json  # For saving resulting index as JSON file
 
-from api_config import configure_api, API  # For Chat API configuration
+from core.api_config import configure_api, API  # For Chat API configuration
 
 # Prompt Engg. constants
 COMPARE_PROMPT = '''You are given a summary of a log file and a question. Decide whether this log file might contain information relevant to answering the question.

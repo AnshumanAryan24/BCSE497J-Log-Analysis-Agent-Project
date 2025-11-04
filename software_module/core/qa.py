@@ -1,4 +1,4 @@
-from api_config import API  # For Chat API configuration
+from core.api_config import API  # For Chat API configuration
 from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type # For backoff in API rate limit
 import google.api_core.exceptions  # Exception for API RPM limit
 
