@@ -1,5 +1,5 @@
-from software_module.core.resolve_files import resolve_files  # Phase 0
-from software_module.core.summarize_logs import create_index  # Phase 1
+from software_module.core.summarize_logs import create_index  # Phase 0
+from software_module.core.resolve_files import resolve_files  # Phase 1
 from software_module.core.qa import get_answer  # Phase 2
 from software_module.core.api_config import configure_api, GEMINI_MODEL as MODEL  # For Chat API configuration
 
@@ -33,7 +33,6 @@ def answer_user_question(question:str, chat_client, logs_root:str, file_index:di
     q_files = resolve_files([question], file_index, chat_client)
 
     # Phase 2
-    results_index = {}
     answers = get_answer(question, q_files[question], chat_client)
     return answers
 
