@@ -1,0 +1,26 @@
+{
+    "Are all OSD's properly mounted?": {
+        "target\\sample_logs\\linux_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        },
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": {
+            "answer": "No, OSD.5 is reported down.",
+            "log": "2025-10-26T11:17:01.005Z obj-node-02 storage-daemon[2100]: INFO: OSD.5 reported down by OSD.1."
+        },
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": {
+            "answer": "No, OSD.5 failed to mount.",
+            "log": "2025-10-26T10:30:05.800+0000 obj-node-01 storage-daemon[1103]: ERROR: Failed to mount OSD.5 on /dev/sdd1: device health check failed."
+        },
+        "target\\sample_logs\\ubuntu_vm1.txt": {
+            "answer": "nil",
+            "log": "nil"
+        }
+    },
+    "file_index": {
+        "target\\sample_logs\\linux_vm1.txt": "The system booted Linux kernel 5.15.0-76-generic, brought up network interface eth0, and started the OpenSSH server. User 'ubuntu' logged in via SSH from 192.168.1.100, and a root cron job ran and completed.",
+        "target\\sample_logs\\object_storage_cluster\\gateway.txt": "Initially, an object was put, replicated, and another retrieved. Subsequently, OSD.5 went down, triggering a healing process. The system restored redundancy for 'config-backup.dat', and OSD.7 remained operational, indicating a partial recovery from the failure.",
+        "target\\sample_logs\\object_storage_cluster\\object_storage_daemons.txt": "Object storage daemon started. OSD.3 and OSD.4 mounted successfully and joined the cluster. OSD.5 failed to mount due to a faulty device and was marked down. The cluster health transitioned from HEALTH_OK to HEALTH_WARN.",
+        "target\\sample_logs\\ubuntu_vm1.txt": "Ubuntu VM booted, with network and SSH configured. After a failed attacker login, an adminuser installed and started Nginx, then restarted SSH. The system is now fully operational with Nginx."
+    }
+}

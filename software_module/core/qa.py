@@ -1,4 +1,4 @@
-from core.api_config import API  # For Chat API configuration
+from software_module.core.api_config import API  # For Chat API configuration
 from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type # For backoff in API rate limit
 import google.api_core.exceptions  # Exception for API RPM limit
 
@@ -18,7 +18,7 @@ Rules:
 
 Output must strictly follow this format:
 
-ANSWER: <your answer in plain English, no explanation>
+ANSWER: <your answer in plain English, then minimal to no explanation>
 LOG: <exact log line used, or "nil">
 
 No extra text. No reasoning.

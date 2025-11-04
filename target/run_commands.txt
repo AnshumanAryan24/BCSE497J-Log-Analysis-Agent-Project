@@ -11,5 +11,8 @@ python .\software_module\core\resolve_files.py -q "Did the Ubuntu System close p
 # Run the file resolver for multiple questions
 python .\software_module\core\resolve_files.py -Q "target/questions/question_list1.txt" "target/outputs/output1.json"
 
-# Run the Python demo of the project
-python .\software_module\core\run.py
+# Run the Python demo of the project (for experimentation)
+python -m software_module.run
+
+# Run the live project demo (for project demonstration)
+python -m project_demo.demo
