@@ -5,6 +5,20 @@ from software_module.core.api_config import configure_api, GEMINI_MODEL as MODEL
 
 import os  # For handling log file paths
 
+# For colorful display
+RED = "\033[31m"
+GREEN = "\033[32m"
+YELLOW = "\033[33m"
+BLUE = "\033[34m"
+BLACK = "\033[30m"
+RED_BG = "\033[41m"
+GREEN_BG = "\033[42m"
+YELLOW_BG = "\033[43m"
+BLUE_BG = "\033[44m"
+BLACK_BG = "\033[30m"
+
+RESET = "\033[0m"
+
 def setup(logs_root:str):
     chat_client = configure_api()
     file_index = create_index(chat_client, logs_root, True)
@@ -23,22 +37,22 @@ def answer_user_question(question:str, chat_client, logs_root:str, file_index:di
     answers = get_answer(question, q_files[question], chat_client)
     return answers
 
-def extract_artifacts(response:dict) -> tuple[str, str, str]:
-    answer = 'not found from files'
-    log_file = 'nil'
-    log_entry = 'nil'
+def extract_artifacts(response:dict) -> tuple[list, list, list]:
+    answer = []
+    log_file = []
+    log_entry = []
 
     for log_file_candidate, result_candidate in response.items():
         if (result_candidate['log'].lower() != 'nil'):
-            answer = result_candidate['answer']
-            log_file = log_file_candidate
-            log_entry = result_candidate['log']
+            answer.append(result_candidate['answer'])
+            log_file.append(log_file_candidate)
+            log_entry.append(result_candidate['log'])
     
     return answer, log_entry, log_file
 
 
 def main():
-    print("\n=== Log Analysis Agent: Live Demo ===")
+    print(f"\n{BLUE_BG}=== Log Analysis Agent: Live Demo ==={RESET}")
     print("Enter the absolute path of the root log directory once.")
     print("Then ask questions. Type 'exit' to quit.\n")
 
@@ -58,9 +72,9 @@ def main():
     print("You can now enter questions.\n")
     while True:
         print()
-        user_q = input("Question > ").strip()
+        user_q = input(f"{BLACK};{YELLOW_BG}Question >{RESET} ").strip()
         if user_q.lower() in {"exit", "quit"}:
-            print("Session terminated.")
+            print(f"{BLACK};{GREEN_BG}Session terminated.{RESET}")
             break
 
         try:
@@ -72,18 +86,19 @@ def main():
             print(f"Error while processing: {e}")
 
         answer, log_entry, log_file = extract_artifacts(response)
-        if log_entry == 'nil':
-            print('Answer: No answer found')
+        if len(answer) == 0:
+            print(f'{RED}Answer: No answer found{RESET}')
         else:
-            print(f'Answer: {answer}')
-            print(f'Relevant log entry ({log_file}):\n{log_entry}')
+            for ans, le, lf in zip(answer, log_entry, log_file):
+                print(f'{lf}: {ans}')
+                print(f'  \'--> {le}')
     
     choice = input('Print the log file summaries (y/n)? ').strip().lower()
     if (choice=='y'):
         for log_file, summary in file_index.items():
             print(f'{log_file} : {summary}')
     
-    print('Exiting...')
+    print(f'{BLACK};{GREEN_BG}Exiting...{RESET}')
 
 if __name__ == "__main__":
     main()
